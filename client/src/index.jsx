@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import PostList from './components/PostList/PostList'
+
 function App() {
   return (
-    <section id="app">HelloWorld</section>
+    <section id="app">
+      <PostList />
+    </section>
   );
 }
 
