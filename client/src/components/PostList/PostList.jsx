@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// import './PostList.scss'
+
+import PostItem from '../PostItem/PostItem';
 
 function PostList() {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState('');
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts').then(response => {
@@ -13,9 +15,12 @@ function PostList() {
   }, []);
 
   return (
-    <ul>
-      {posts.map(post => <li key={post.id}>{post.title}</li>)}
-    </ul>
+    <>
+      <input onChange={e => setNewPost(e.target.value)} value={newPost} />
+      <ul>
+        {posts.map(post => <PostItem key={post.id} post={post} />)}
+      </ul>
+    </>
   );
 };
 
