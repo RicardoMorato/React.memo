@@ -29,7 +29,7 @@ function myCache(a, b, c) {
     return a + b + c;
 }
 ```
-As you can see, we transform the parameters of `myCache()` to string and concatenate them to be the key of the cacheEmulator. So say, if we call 10000 times of memoize(myKey), the real calculation happens only the first time, the other 9999 times of calling just return the cached value in cacheEmulator, THAT'S FAST!
+As you can see, we transform the parameters of `myCache()` to string and concatenate them to be the key of the cacheEmulator. So say, if we call 10000 times of `myCache(1, 2, 3)`, the real calculation happens only the first time, the other 9999 times of calling just return the cached value in cacheEmulator, THAT'S FAST!
 
 For now, we can easily think of 2 use cases to turn a function to its memoized version.
 - If the function is pure and computation intensive and called repeatedly.
@@ -107,3 +107,70 @@ But you might say 'But nowadays, with React Hooks we have useMemo and useCallbac
 <a href=""><img src="https://i.ytimg.com/vi/4BranN3qnDU/maxresdefault.jpg" width="600px" /></a>
 
 First of all. this isn't a fight and you don't have to pick a side. You can use all 3 of them in a project, but it is important to know what you're doing and their differences.
+
+In a basic way, the three of them do the same thing, but with different scope.
+- React.memo memoizes an entire component, and is used like this:
+```javascript
+import React, { memo } from 'react';
+
+function PostItem({ post }) {
+
+  return (
+    <li>
+      <h2>{post.title}</h2>
+      <p>{post.body}</p>
+    </li>
+  );
+};
+
+export default memo(PostItem);
+
+```
+But, if the parent passes a non-primitive type as an array by props, it breaks.
+
+- To resolve it, we use useMemo, which will memoize the value of an variable. So, we can do something like this: 
+
+```javascript
+import React, { useMemo } from 'react';
+import PostItem from '../PostItem/PostItem';
+
+function PostList() {
+  const array = useMemo(() => {
+    return ['one', 'two', 'three']
+  }, []);
+
+  return (
+      <ul>
+        <postItem array={array} />
+      </ul>
+  );
+};
+
+export default PostList;
+```
+
+Similar to the useMemo, the useCallback works with functions, since they have the same syntax, we won't highlight an example here, but feel free to contribute if necessary.
+
+## Conclusion
+
+<img src="https://daqxzxzy8xq3u.cloudfront.net/wp-content/uploads/2019/07/24121630/avoid-re-rendering-feature-img1.jpg" width="450px" />
+
+Memoization is a great technique and should be used more often amongst developers. Since React has it's own methods, why not explore them and make a more beatiful and fast code?
+
+But, even so it seems great (and it really is), it is important to know when and where to use, because **an unnecessary memoization is as bad as not memoizing at all!**
+
+More generally consider using memoization only for those possibly frequently called functions whose arguments may appear the same repeatedly. And, in React, use the different methods only when you see a constant and unnecessary re-rendering, when using React.memo.
+
+## Useful bibliography
+
+- <a href="https://medium.com/@chialunwu/wtf-is-memoization-a2979594fb2a">WTF is Memoization - Leo wu</a>
+
+- <a href="https://codeburst.io/understanding-memoization-in-3-minutes-2e58daf33a19">Understanding JavaScript Memoization In 3 Minutes - Codesmith</a>
+
+- <a href="http://inlehmansterms.net/2015/03/01/javascript-memoization/">JavaScript Function Memoization - Jonathan Lehman</a>
+
+- <a href="https://www.sitepoint.com/implementing-memoization-in-javascript/">Implementing Memoization in JavaScript - Colin Ihrig</a>
+
+- <a href="https://reactjs.org/docs/react-api.html#reactmemo">React.memo - React Documentation</a>
+
+- <a href="https://www.youtube.com/watch?v=4BranN3qnDU">React.memo, useMemo, and useCallback Optimizations - Code Bushi</a>
