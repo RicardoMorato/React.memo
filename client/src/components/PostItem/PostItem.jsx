@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 function PostItem({ post }) {
 
@@ -10,4 +10,4 @@ function PostItem({ post }) {
   );
 };
 
-export default PostItem;
+export default memo(PostItem);
