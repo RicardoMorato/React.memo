@@ -6,7 +6,7 @@ This project was developed to teach and learn the principles of memoization usin
 
 ## First of all, what is memoization?
 To first understand the the power that comes with React.memo, we have to be familiar with the term 'memoization'.
-This term was first used by Donald Michie, and comes from Latin from the word "memorandum" ("to be remembered"). That says a lot, right?
+This term was first used by <a href="https://en.wikipedia.org/wiki/Donald_Michie">Donald Michie</a>, and comes from Latin from the word "memorandum" ("to be remembered"). That says a lot, right?
 In american english memoization often gets truncated as 'memo', which is how we know it.
 
 To be simple, memoization remembers a lot something that we are already familiarized with: ***Caching***. The reason of existance of caching is quite simple:
