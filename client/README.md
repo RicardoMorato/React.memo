@@ -1,5 +1,5 @@
 # React.memo, how to start using it
-The official documentation can be accessed [here](https://reactjs.org/docs/higher-order-components.html).
+The official documentation can be accessed [here](https://reactjs.org/docs/react-api.html#reactmemo).
 
 ## Getting to know React.memo
 React.memo is **an advanced technique in React for reusing component logic.**
