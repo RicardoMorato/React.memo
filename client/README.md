@@ -75,3 +75,7 @@ As we can see, we just import it via destructuring and, when exporting the compo
 ```javascript
 export default memo(PostItem);
 ```
+
+As showed, **there isn't any bigger setup needed to use React.memo.** Just import it on the Component that you want to use and export as we saw previously. You don't have to make any changes on any file other than this one.
+
+Using React.memo is safe, fast and much needed, but use with moderation. ***Don't OverReact while using.***
