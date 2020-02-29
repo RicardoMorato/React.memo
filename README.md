@@ -1,10 +1,10 @@
-# React.memo
+# Memoization using
 <a href="https://reactjs.org/docs/react-api.html#reactmemo" ><img src="https://www.import.io/wp-content/uploads/2017/10/React-logo-1.png" />
 </a>
 
 This project was developed to teach and learn the principles of memoization using React.
 
-### If you are not interested on knowing memoization and wants to know only about React.memo, go to the [Project's Readme](client:README.md)
+If you are not interested on knowing memoization and wants to know only about React.memo and how it was used in this project, go to the [Project's Readme](https://github.com/RicardoMorato/React.memo/blob/master/client/README.md)
 
 ## First of all, what is memoization?
 To first understand the the power that comes with React.memo, we have to be familiar with the term 'memoization'.
