@@ -4,7 +4,7 @@
 
 This project was developed to teach and learn the principles of memoization using React.
 
-### If you are not interested on knowing memoization and wants to know only about React.memo, go to the [Project's Readme](client:Readme.md)
+### If you are not interested on knowing memoization and wants to know only about React.memo, go to the [Project's Readme](client:README.md)
 
 ## First of all, what is memoization?
 To first understand the the power that comes with React.memo, we have to be familiar with the term 'memoization'.
