@@ -26,8 +26,8 @@ The main difference between memoization and caching is that memo is the caching 
 To code your own memo function you can do something like this:
 
 ```javascript
+let cacheEmulator = {};
 function sumInCache(a, b, c) {
-  let cacheEmulator = {};
   const key = `${a}-${b}-${c}`;
   if (key in cacheEmulator) {
     return cacheEmulator[key];
