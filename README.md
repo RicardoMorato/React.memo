@@ -9,7 +9,7 @@ If you are not interested on knowing memoization and wants to know only about Re
 
 ## First of all, what is memoization?
 
-To first understand the the power that comes with React.memo, we have to be familiar with the term 'memoization'.
+To first understand the power that comes with React.memo, we have to be familiar with the term 'memoization'.
 This term was first used by <a href="https://en.wikipedia.org/wiki/Donald_Michie">Donald Michie</a>, and comes from Latin from the word "memorandum" ("to be remembered"). That says a lot, right?
 In american english memoization often gets truncated as 'memo', which is how we know it.
 
