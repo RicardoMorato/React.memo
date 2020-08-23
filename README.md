@@ -27,6 +27,7 @@ To code your own memo function you can do something like this:
 
 ```javascript
 let cacheEmulator = {};
+
 function sumInCache(a, b, c) {
   const key = `${a}-${b}-${c}`;
   if (key in cacheEmulator) {
@@ -39,14 +40,14 @@ function sumInCache(a, b, c) {
 }
 ```
 
-As you can see, we transform the parameters of `myCache()` to string and concatenate them to be the key of the cacheEmulator. So say, if we call 10000 times of `myCache(1, 2, 3)`, the real calculation happens only the first time, the other 9999 times of calling just return the cached value in cacheEmulator, THAT'S FAST!
+As you can see, we transform the parameters of `sumInCache()` to string and concatenate them to be the key of the cacheEmulator. So say, if we call 10000 times of `sumInCache(1, 2, 3)`, the real calculation happens only the first time, the other 9999 times of calling just return the cached value in cacheEmulator, THAT'S FAST!
 
 For now, we can easily think of 2 use cases to turn a function to its memoized version.
 
 - If the function is pure and computation intensive and called repeatedly.
 - If the function is pure and is recursive.
 
-The first one is straightforward, it’s just simple caching, but it is super powerfull. The second one is more interesting and we will explore it a little bit more now:
+The first one is straightforward, it’s just simple caching, but it is super powerful. The second one is more interesting and we will explore it a little bit more now:
 
 ### Memoization in recursive functions:
 
@@ -65,7 +66,7 @@ That's the Fibonacci sequence recursively. We all are quite familiarized to it, 
 
 > O(2^n) denotes an algorithm whose growth doubles with each additon to the input data set. The growth curve of an O(2^n) function is exponential - starting off very shallow, then rising meteorically.
 
-Okay, that's bad, so we can use our new (super powerfull) weapon to neutralize it. Let's breakdown Fibonacci's code execution using a graph.
+Okay, that's bad, so we can use our new (super powerful) weapon to neutralize it. Let's breakdown Fibonacci's code execution using a graph.
 
 <a href=""><img src="https://miro.medium.com/max/604/1*48d8pI_c1-mQYV5xsz8XSQ.png" /></a>
 
