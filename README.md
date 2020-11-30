@@ -75,23 +75,24 @@ As we can see, there are some repeated calculations. For example, `fibonacci(3)`
 If we make fibonacci memoized, then we can guarantee for a number n, it’s fibonacci number will be calculated only once, this enhanced version of Fibonacci can be written like this:
 
 ```javascript
-function memoize(f) {
-  const cacheLookup = {}; // Value cache stored in the closure
+const memo = (func) => {
+  const myCache = {};
+
   return function () {
-    const key = Array.prototype.join.call(arguments, "-");
-    if (key in cacheLookup) {
-      return cacheLookup[key];
-    } else {
-      return (cacheLookup[key] = f.apply(this, arguments));
-    }
-  };
+    const key = JSON.stringify(arguments);
+    if (myCache[key]) return myCache[key];
+
+    const val = func.apply(this, arguments);
+    myCache[key] = val;
+    console.log(val);
+    return val;
+  }
 }
 
-const fibonacci = memoize(function (n) {
-  if (n === 0 || n === 1) {
-    return n;
-  }
-  return fibonacci(n - 1) + fibonacci(n - 2);
+const fib = memo(function(n) {
+  if (n < 2) return 1;
+  console.log('loading...');
+  return fib(n-2) + fib(n-1);
 });
 ```
 
