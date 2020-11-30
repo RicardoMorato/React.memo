@@ -35,8 +35,6 @@ function sumInCache(a, b, c) {
 
   const result = a + b + c;
   Object.assign(simpleCache, { [key]: result });
-  console.log(result);
-  console.log(simpleCache);
   return result;
 }
 ```
